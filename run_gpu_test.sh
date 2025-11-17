@@ -19,8 +19,8 @@ echo ""
 # Check if conda environment is activated
 if [[ -z "${CONDA_DEFAULT_ENV:-}" ]]; then
     echo "WARNING: No conda environment appears to be activated!"
-    echo "Please activate the pm environment first:"
-    echo "  conda activate pm"
+    echo "Please activate your test environment first:"
+    echo "  conda activate <your_test_env>"
     exit 1
 fi
 
