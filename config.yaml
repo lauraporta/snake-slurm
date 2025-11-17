@@ -1,0 +1,9 @@
+# Configuration for GPU testing workflow
+# This is a minimal config for testing Cellpose-SAM across GPU nodes
+
+# SLURM configuration
+slurm:
+  # slurm_partition: "gpu"  # GPU partition for processing
+  mem_mb: 8000          # Memory allocation in MB
+  gpu: 1
+  tasks_per_gpu: 0
