@@ -14,10 +14,17 @@ This workflow helps identify:
 
 ## Prerequisites
 
-1. Activate the `pm` conda environment:
+1. **Activate your test conda environment** (with GPU dependencies):
    ```bash
-   conda activate pm
+   conda activate <your_test_env>
    ```
+   
+   **Important:** The environment should have:
+   - Latest version of **PyTorch** with CUDA support
+   - Latest version of **Cellpose** (with SAM model support)
+   - **Snakemake** installed
+   
+   The activated conda environment will be **automatically inherited by all SLURM jobs** spawned by Snakemake - you don't need to activate it in each job. This is a built-in Snakemake feature when using the SLURM executor.
 
 2. Ensure you're in the `gpu_test` directory:
    ```bash
@@ -141,7 +148,7 @@ Each node produces a JSON file with:
 - Check SLURM queue: `squeue -u $USER`
 
 ### All nodes fail
-- Verify `pm` environment has correct packages installed
+- Verify your test environment has correct packages installed
 - Check PyTorch CUDA installation: `python -c "import torch; print(torch.cuda.is_available())"`
 - Verify Cellpose is installed: `pip show cellpose`
 
